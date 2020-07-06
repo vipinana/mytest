@@ -8,13 +8,11 @@
     const gl = canvas.getContext('webgl', {desynchronized: true, alpha: false});
     canvas.width = 500;
     canvas.height = 250;
-    
 
     gl.clearColor(1, 1, 1, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.scissor(125, 63, 250, 125);
     gl.enable(gl.SCISSOR_TEST);
-    
 
     let hue = 0;
     const raf = () => {
@@ -23,7 +21,6 @@
       g = Math.sin(0.05 * hue + 2) * 127 + 128;
       b = Math.sin(0.05 * hue + 4) * 127 + 128;
       gl.clearColor(r / 255, g / 255, b / 255, 1);
-      
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.flush();
       requestAnimationFrame(raf);
